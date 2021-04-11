@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import { BrowserRouter, Route} from 'react-router-dom'
+import AllQuiz from './components/AllQuiz';
+import Quiz from './components/Quiz';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+      <Navbar/>      
+      <div className="container mt-3">
+        <div className="text-center mb-5">
+          <h1 className="display-6"> AIS Annual Ramazan Quiz | 2021 </h1>
+        </div>       
+        <Route component={AllQuiz} path="/" exact/>
+        <Route component={Quiz} path="/:slug" />        
+      </div>
+    </BrowserRouter>
+   
+     
     </div>
   );
 }
