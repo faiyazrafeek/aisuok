@@ -10,7 +10,7 @@ function AllQuiz() {
         sanityClient.fetch(
             `*[_type == "quiz" ]{
                 title,
-                _updatedAt,
+                publishedAt,
                 slug,
                 "name" : author->name,
             }`
@@ -29,7 +29,7 @@ function AllQuiz() {
                         <Link to={'/' + quiz.slug.current} key={quiz.slug.current} className="text-decoration-none">
                             <li class="list-group-item py-3 mb-3 fs-5 fw-bold d-flex justify-content-between align-items-center">
                                 {quiz.title}
-                                <span class="badge bg-primary rounded-pill" style={{fontSize: '13px'}}><ReactTimeAgo date={quiz._updatedAt} /></span>
+                                <span class="badge bg-primary rounded-pill" style={{fontSize: '13px'}}><ReactTimeAgo date={quiz.publishedAt} /></span>
                             </li>                        
                         </Link>
                      </div>
