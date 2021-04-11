@@ -8,7 +8,7 @@ function AllQuiz() {
 
     useEffect(() => {
         sanityClient.fetch(
-            `*[_type == "quiz" ]{
+            `*[_type == "quiz" ] | order(publishedAt desc){
                 title,
                 publishedAt,
                 slug,
@@ -24,7 +24,8 @@ function AllQuiz() {
         <div>
             {
                 allQuizData && 
-                allQuizData.map((quiz, index) => (
+                allQuizData    
+                .map((quiz, index) => (
                     <div className="list-group">
                         <Link to={'/' + quiz.slug.current} key={quiz.slug.current} className="text-decoration-none">
                             <li class="list-group-item py-3 mb-3 fs-5 fw-bold d-flex justify-content-between align-items-center">
