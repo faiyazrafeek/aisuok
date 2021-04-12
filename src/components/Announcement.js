@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import sanityClient from '../client'
 import BlockContent from '@sanity/block-content-to-react';
 
+
 function Announcement() {
     const [announcement, setAnnouncement] = useState(null);
 
@@ -20,25 +21,18 @@ function Announcement() {
 
     }, [])
 
-    if(!announcement) return (
-        <div class="d-flex justify-content-center mt-3" >
-            <div className="spinner-border" role="status" style={{width: '2rem', height: '2rem'}}>
-                <span className="visually-hidden">Loading...</span>
-            </div>
-        </div>
-    )
+    if(!announcement) return <span></span>
 
     return (
-        <div className={`fs-5 mb-4 alert alert-dismissible fade show alert-${announcement.level === 'info' ? "primary" : "danger"}`} role="alert">
-            <strong className="fs-4">{announcement.title}</strong> 
+        <div className={`mb-4 alert alert-${announcement.level === 'info' ? "primary" : "danger"}`} role="alert">
+            <h4 className="alert-heading">{announcement.title} </h4>
             <BlockContent
-                blocks={announcement.message}
-                projectId={sanityClient.clientConfig.projectId}
-                dataset={sanityClient.clientConfig.dataset}
-            />
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <hr/>
-            <p>{announcement.footer}</p>
+                    blocks={announcement.message}
+                    projectId={sanityClient.clientConfig.projectId}
+                    dataset={sanityClient.clientConfig.dataset}
+            /> 
+            <hr />
+            <p className="mb-0">{announcement.footer}</p>
         </div>
     )
 }
