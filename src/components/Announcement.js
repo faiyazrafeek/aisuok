@@ -29,15 +29,16 @@ function Announcement() {
     )
 
     return (
-        <div className={`mt-4 alert alert-${announcement.level === 'info' ? "primary" : "danger"}`} role="alert">
-            <h4 className="alert-heading">{announcement.title}</h4>
+        <div className={`fs-5 mb-4 alert alert-dismissible fade show alert-${announcement.level === 'info' ? "primary" : "danger"}`} role="alert">
+            <strong className="fs-4">{announcement.title}</strong> 
             <BlockContent
-                    blocks={announcement.message}
-                    projectId={sanityClient.clientConfig.projectId}
-                    dataset={sanityClient.clientConfig.dataset}
-            /> 
-            <hr />
-            <p className="mb-0">{announcement.footer}</p>
+                blocks={announcement.message}
+                projectId={sanityClient.clientConfig.projectId}
+                dataset={sanityClient.clientConfig.dataset}
+            />
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <hr/>
+            <p>{announcement.footer}</p>
         </div>
     )
 }

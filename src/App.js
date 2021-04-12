@@ -10,10 +10,10 @@ function App() {
       <BrowserRouter>
       <Navbar/>      
       <div className="container">
-        <Announcement/>
-        <div className="text-center my-4 mb-5">
+        <div className="text-center my-4">
           <h1 className="display-6"> AIS Annual Ramazan Quiz | 2021 </h1>
         </div>       
+        <Announcement/>
         <Switch>
           <Route component={AllQuiz} path="/" exact/>
           <Route component={Quiz} path="/:slug" /> 
