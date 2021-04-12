@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import sanityClient from '../client'
 import BlockContent from '@sanity/block-content-to-react';
 import { Link } from 'react-router-dom'
+import {Helmet} from "react-helmet";
 import './OnePost.css'
 
 
@@ -26,32 +27,37 @@ function Quiz() {
     }, [slug])
 
     if(!quizData) return (
-        <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
+        <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
         </div>
     )
 
     return (
         <div>
-            <Link to="/" class="btn btn-outline-dark btn-sm mb-4" >Back</Link>
+            <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>AIS Quiz | {quizData.title}</title>
+            </Helmet>           
 
             <div>
-                <h3 className="mb-3">{quizData.title}</h3>
+                <h3 className="text-center mb-4">{quizData.title}</h3>
             </div>           
             <div>
                 <BlockContent
+                    
                     blocks={quizData.question}
                     projectId={sanityClient.clientConfig.projectId}
                     dataset={sanityClient.clientConfig.dataset}
                 /> 
-                <hr/>
-                <h3 className="my-4">Answer</h3>         
+                <hr className="my-4"/>
+                <h3 className="mb-4">Answer</h3>         
                 <BlockContent
                     blocks={quizData.answer}
                     projectId={sanityClient.clientConfig.projectId}
                     dataset={sanityClient.clientConfig.dataset}
                 />
             </div>
+            <Link to="/" className="btn btn-outline-dark btn-sm mt-4" >Back</Link>
         </div>
     )
 }
