@@ -55,7 +55,7 @@ function Quiz() {
                     dataset={sanityClient.clientConfig.dataset}
                 />
             </div>
-            <Link to="/" className="btn btn-outline-dark btn-sm mt-4" >Back</Link>
+            <Link to="/" className="btn btn-outline-dark btn-sm mt-4 float-end mb-5" >Back</Link>
         </div>
     )
 }

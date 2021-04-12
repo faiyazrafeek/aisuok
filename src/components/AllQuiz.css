@@ -7,6 +7,10 @@
   border: 2px solid #563d7c;
 }
 
+.list-group .list-group-item {
+  border-radius: 15px;
+}
+
 .list-group-item .badge.bg-dark {
   background: #563d7c !important;
 }
