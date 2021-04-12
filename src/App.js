@@ -5,7 +5,7 @@ import AllQuiz from './components/AllQuiz';
 import Quiz from './components/Quiz';
 
 function App() {
-  return (
+  return (   
       <BrowserRouter>
       <Navbar/>      
       <div className="container">
@@ -16,8 +16,8 @@ function App() {
           <Route component={AllQuiz} path="/" exact/>
           <Route component={Quiz} path="/:slug" /> 
         </Switch>       
-      </div>
-    </BrowserRouter>
+      </div>     
+    </BrowserRouter>  
   );
 }
 

@@ -56,6 +56,7 @@ function Quiz() {
                 />
             </div>
             <Link to="/" className="btn btn-outline-dark btn-sm mt-4 float-end mb-5" >Back</Link>
+            <div className="clearfix"></div>
         </div>
     )
 }
