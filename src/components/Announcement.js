@@ -1,12 +1,43 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import sanityClient from '../client'
+import BlockContent from '@sanity/block-content-to-react';
 
 function Announcement() {
+    const [announcement, setAnnouncement] = useState(null);
+
+    useEffect(() => {
+        sanityClient.fetch(
+            `*[_type == "announcement" ]{
+                title,
+                slug,
+                message,
+                footer,
+                level,
+            }`
+        ) 
+        .then((data) => setAnnouncement(data[0]))       
+        .catch((err) => console.log(err))
+
+    }, [])
+
+    if(!announcement) return (
+        <div class="d-flex justify-content-center mt-3" >
+            <div className="spinner-border" role="status" style={{width: '2rem', height: '2rem'}}>
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    )
+
     return (
-        <div className="alert alert-primary" role="alert">
-            <h4 className="alert-heading"> Assalamu Alaikum!</h4>
-            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+        <div className={`mt-4 alert alert-${announcement.level === 'info' ? "primary" : "danger"}`} role="alert">
+            <h4 className="alert-heading">{announcement.title}</h4>
+            <BlockContent
+                    blocks={announcement.message}
+                    projectId={sanityClient.clientConfig.projectId}
+                    dataset={sanityClient.clientConfig.dataset}
+            /> 
             <hr />
-            <p className="mb-0">We invite all of you to participate and win more in this quiz.</p>
+            <p className="mb-0">{announcement.footer}</p>
         </div>
     )
 }
