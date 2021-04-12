@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import ReactTimeAgo from 'react-time-ago'
 import {Helmet} from "react-helmet";
 import './AllQuiz.css'
+import Announcement from './Announcement';
 
 function AllQuiz() {
     const [allQuizData, setAllQuizData] = useState(null);
@@ -35,6 +36,7 @@ function AllQuiz() {
 
     return (
         <div>
+              <Announcement/>
             {
                 allQuizData && 
                 allQuizData.map((quiz, index) => (
