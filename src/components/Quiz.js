@@ -27,8 +27,10 @@ function Quiz() {
     }, [slug])
 
     if(!quizData) return (
-        <div className="spinner-border" role="status">
-            <span className="visually-hidden">Loading...</span>
+        <div class="d-flex justify-content-center" >
+            <div className="spinner-border" role="status" style={{width: '2.5rem', height: '2.5rem'}}>
+                <span className="visually-hidden">Loading...</span>
+            </div>
         </div>
     )
 
@@ -55,7 +57,7 @@ function Quiz() {
                     dataset={sanityClient.clientConfig.dataset}
                 />
             </div>
-            <Link to="/" className="btn btn-outline-dark btn-sm mt-4 float-end mb-5" >Back</Link>
+            <Link to="/" className="btn btn-outline-dark mt-4 float-end mb-5" >Back</Link>
             <div className="clearfix"></div>
         </div>
     )
