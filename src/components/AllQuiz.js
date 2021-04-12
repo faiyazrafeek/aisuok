@@ -38,11 +38,8 @@ function AllQuiz() {
                     <div className="list-group" >
                         <Link to={'/' + quiz.slug.current} className="text-decoration-none">
                             <li className={`list-group-item py-3 mb-3 fs-5 fw-bold d-flex justify-content-between align-items-center ${!quiz.status ? "active" : null}`}>
-                                {quiz.title
-                                
-                                }
+                                { quiz.title }
                                 <span className={`badge ${quiz.status ? 'bg-danger' : 'bg-dark'} rounded-pill`} style={{fontSize: '13px'}}>{ quiz.status ? "Finished" :   <ReactTimeAgo date={quiz.publishedAt} /> }</span>
-                               
                             </li>                        
                         </Link>
                      </div>

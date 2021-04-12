@@ -6,3 +6,7 @@
 .list-group .list-group-item.active {
   border: 2px solid #563d7c;
 }
+
+.list-group-item .badge.bg-dark {
+  background: #563d7c !important;
+}

@@ -35,16 +35,14 @@ function Quiz() {
     return (
         <div>
             <Helmet>
-                    <meta charSet="utf-8" />
-                    <title>AIS Quiz | {quizData.title}</title>
-            </Helmet>           
-
+                <meta charSet="utf-8" />
+                <title>AIS Quiz | {quizData.title}</title>
+            </Helmet>          
             <div>
                 <h3 className="text-center mb-4">{quizData.title}</h3>
             </div>           
             <div>
                 <BlockContent
-                    
                     blocks={quizData.question}
                     projectId={sanityClient.clientConfig.projectId}
                     dataset={sanityClient.clientConfig.dataset}
