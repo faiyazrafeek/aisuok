@@ -11,7 +11,7 @@ function App() {
       <Navbar/>      
       <div className="container">
         <div className="text-center my-4">
-          <h1 className="display-6"> AIS Annual Ramazan Quiz | 2021 </h1>
+          <h1 className="display-6"> AIS Annual Ramazan Quiz | 2022 </h1>
         </div>       
       
         <Switch>
