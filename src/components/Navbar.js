@@ -5,7 +5,7 @@ function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-gradient" style={{backgroundColor: '#563D7C'}}>
             <div className="container-fluid">
-                <NavLink className="navbar-brand logo" to="/">AIS Quiz | 2021</NavLink>        
+                <NavLink className="navbar-brand logo" to="/">AIS Quiz | 2022</NavLink>        
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
                 </button>
